@@ -48,11 +48,33 @@ I would like my property to remain listed and bookable
 ```
 
 
+# stuff to remember
+One night stay
+user says the date they want
+only sees list of properties available.
 
 
+# database tables / fields
 
+SPACE:
+spaceID (unique)
+userID (unique)
+picture url ()????)
+name
+description
+price/ Nights
+d1(date)
+d1 status(available, requested, booked)
+d2(date)
+d2 status(available, requested, booked)
+d3 (date)
+d3 status(available, requested, booked)
 
-
+USER:
+userID (unique)
+name
+email(unique)
+password
 
 
 
@@ -65,9 +87,10 @@ I would like my property to remain listed and bookable
 - javascript
 - jasmine
 - jquery
+- node - What is the testing language for this????
 - html / css
-- psql
--
+- psql / mongo
+
 
 # engineering project req.
 ### Testing requirements
