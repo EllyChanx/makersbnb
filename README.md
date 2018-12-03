@@ -47,13 +47,6 @@ I would like my property to remain listed and bookable
 
 ```
 
-![Diagram of User Stories](img/diagram.jpg)
-
-
-
-
-
-
 
 
 
