@@ -70,6 +70,7 @@ d2 status(available, requested, booked)
 d3 (date)
 d3 status(available, requested, booked)
 
+<<<<<<< HEAD
 USER:
 userID (unique)
 name
@@ -81,6 +82,8 @@ password
 
 
 
+=======
+>>>>>>> b156fc755cb123fefb4a8a1f5dc9f4e17f2ffad6
 
 # technologies
 ---
