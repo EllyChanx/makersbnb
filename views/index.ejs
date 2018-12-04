@@ -1,23 +1,42 @@
 <% include partials/header %>
 
+<html>
+
+<head>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href="index.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="main">
+
+  <form class="top-right" method="get" action="/signup">
+    <input class="butt" type="submit" value="Signup">
+  </form>
+
 <h1><%= title %></h1>
 
-  <form method="get" action="/signup">
-    <input type="submit" value="Signup">
-  </form>
-
-<h2>Log In:</h2>
+  <div class="box">
 
   <form method="post" action="/user/login">
-    <label>Email</label>
+
     <br>
-    <input type="text" name="email"
-    <br/><br>
-    <label>Password</label>
-    <br>
-    <input type="text" name="password">
+    <input type="text" name="email" placeholder="email">
     <br/>
-    <input type="submit" value="Submit">
+
+    <br>
+    <input type="text" name="password" placeholder="password">
+    <br/><br>
+    <input class="butt" type="submit" value="Log In">
   </form>
+  <br>
+  </div>
+ <br>
+
+  <span class="subtext">Let strangers into your home<br>(While you're not there!)</span>
+
+</body>
+
+</html>
 
 <% include partials/footer %>
