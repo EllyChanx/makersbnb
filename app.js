@@ -22,7 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'Customer'
+    title: 'iStay'
+  });
+});
+
+app.get('/signup', function(req, res){
+  res.render('signup', {
+    title: 'Sign Up!'
   });
 });
 

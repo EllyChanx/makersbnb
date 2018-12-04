@@ -2,13 +2,12 @@
 
 <h1><%= title %></h1>
 
-  <form method="get" action="/signup">
-    <input type="submit" value="Signup">
-  </form>
+  <form method="post" action="/user/add">
 
-<h2>Log In:</h2>
-
-  <form method="post" action="/user/login">
+    <label>Name</label>
+    <br>
+    <input type="text" name="name">
+    <br>
     <label>Email</label>
     <br>
     <input type="text" name="email"
@@ -16,8 +15,8 @@
     <label>Password</label>
     <br>
     <input type="text" name="password">
-    <br/>
-    <input type="submit" value="Submit">
+    <br/>  <br/>  <br/>
+    <input type="submit" value="Confirm">
   </form>
 
 <% include partials/footer %>
