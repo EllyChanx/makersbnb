@@ -26,33 +26,26 @@ app.get('/', function(req, res){
   });
 });
 
-app.post('/signin_confirmed', function(req, res){
+app.post('/user/login', function(req, res){
   // FIND DATA IN DATABASE
-  res.redirect('/properties');
+  res.redirect('/');
 });
 
-app.get('/signup', function(req, res){
+app.get('/user/signup', function(req, res){
   res.render('signup', {
     title: 'Sign Up!'
   });
 });
 
-app.post('/signup_confirmed', function(req, res) {
-
-  if (req.body.name &&
-  req.body.email &&
-  req.body.password) {
-
-    var newUser = {
-    
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password
-      db.users.insert(newUser, function(req, result){
-        res.redirect('/properties');
+app.post('/user/signup', function(req, res) {
+  var newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
     }
-
-    }
+  db.users.insert(newUser, function(req, result){
+    console.log('added new user')
+    res.redirect('/');
   });
 });
 
