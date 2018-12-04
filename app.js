@@ -26,11 +26,44 @@ app.get('/', function(req, res){
   });
 });
 
+app.post('/signin_confirmed', function(req, res){
+  // FIND DATA IN DATABASE
+  res.redirect('/properties');
+});
+
+
+
 app.get('/signup', function(req, res){
   res.render('signup', {
     title: 'Sign Up!'
   });
 });
+
+app.post('/signup_confirmed', function(req, res) {
+  var newUser = {
+    name: req.body.first_name,
+    email: req.body.email,
+    password: req.body.password
+  }
+  db.user.insert(newUser, function(req, result){
+    res.redirect('/properties');
+  });
+});
+
+app.get('/properties', function(req, res) {
+  // use param for date - search date
+  // logic is needed in the view to show the dates when submit is pressed
+  res.render('properties', {
+    title: 'Properties'
+  });
+});
+
+
+
+
+
+
+
 
 app.post('/user/add', function(req, res){
   var newUser = {
