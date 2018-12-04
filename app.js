@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var mongojs = require('mongojs');
-var db = mongojs('test', ['user']);
+var db = mongojs('istaytest', ['users', 'properties']);
 
 
 var app = express();
@@ -38,13 +38,21 @@ app.get('/signup', function(req, res){
 });
 
 app.post('/signup_confirmed', function(req, res) {
-  var newUser = {
-    name: req.body.first_name,
-    email: req.body.email,
-    password: req.body.password
-  }
-  db.user.insert(newUser, function(req, result){
-    res.redirect('/properties');
+
+  if (req.body.name &&
+  req.body.email &&
+  req.body.password) {
+
+    var newUser = {
+    
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+      db.users.insert(newUser, function(req, result){
+        res.redirect('/properties');
+    }
+
+    }
   });
 });
 
