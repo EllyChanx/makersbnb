@@ -1,12 +1,20 @@
 <% include partials/header %>
 
-<h1><%= title %></h1>
+<html>
 
-  <form method="get" action="/signup">
-    <input type="submit" value="Signup">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href="index.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="main">
+
+  <form class="top-right" method="get" action="/signup">
+    <input class="butt" type="submit" value="Signup">
   </form>
 
-<h2>Log In:</h2>
+<h1><%= title %></h1>
 
   <form method="post" action="/user/login">
     <label>Email</label>
@@ -16,8 +24,12 @@
     <label>Password</label>
     <br>
     <input type="text" name="password">
-    <br/>
-    <input type="submit" value="Submit">
+    <br/><br>
+    <input class="butt" type="submit" value="Log In">
   </form>
+
+</body>
+
+</html>
 
 <% include partials/footer %>
