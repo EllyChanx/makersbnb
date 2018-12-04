@@ -1,3 +1,5 @@
+# install
+
 --Install MongoDB with Homebrew-- // if needed use sudo
 
 brew install mongodb
@@ -12,14 +14,7 @@ iTerm buffer 1: mongod
 iTerm buffer 2: mongo
 
 
-//CREATING DATA BASE :
-use istay;
-
-//CREATING TABLE (COLLECTION):
-
-db.createCollection('users')
-db.createCollection('properties')
-
+# instructions
 
 //SHOW EXISTING TABLES(COLLECTIONS)
 
