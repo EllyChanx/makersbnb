@@ -1,22 +1,40 @@
 <% include partials/header %>
 
-<h1><%= title %></h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <link href=’https://fonts.googleapis.com/css?family=Montserrat' rel=‘stylesheet’>
+  <link href="signup.css" rel="stylesheet" type="text/css">
+</head>
 
-  <form method="post" action="/user/add">
+<body class="main">
 
-    <label>Name</label>
-    <br>
-    <input type="text" name="name">
-    <br>
-    <label>Email</label>
-    <br>
-    <input type="text" name="email"
-    <br/><br>
-    <label>Password</label>
-    <br>
-    <input type="text" name="password">
-    <br/>  <br/>  <br/>
-    <input type="submit" value="Confirm">
-  </form>
+  <div>
+  <h1>Register and Use iStay. Today.</h1>
+
+  <div class="box">
+
+    <form method="post" action="/user/add">
+
+      <div>
+
+      <input class="input" type="text" name="name" placeholder="Name">
+      <br/>
+
+      <input class="input" type="text" name="email" placeholder="Email">
+      <br/>
+
+      <input class="input" type="text" name="password" placeholder="Password">
+      <br/>  
+      <input class="submitbutton" type="submit" value="Confirm">
+
+      </div>
+
+    </form>
+
+  </div>
+  </div>
+</body>
+</html>
 
 <% include partials/footer %>
