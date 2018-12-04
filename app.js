@@ -31,8 +31,6 @@ app.post('/signin_confirmed', function(req, res){
   res.redirect('/properties');
 });
 
-
-
 app.get('/signup', function(req, res){
   res.render('signup', {
     title: 'Sign Up!'
@@ -51,10 +49,20 @@ app.post('/signup_confirmed', function(req, res) {
 });
 
 app.get('/properties', function(req, res) {
-  // use param for date - search date
-  // logic is needed in the view to show the dates when submit is pressed
-  res.render('properties', {
-    title: 'Properties'
+  var property = {
+    pic_url: req.body.pic_url,
+    name: req.body.name,
+    price: req.body.price,
+    description: req.body.description,
+    date1: req.body.date1,
+    date1Status: req.body.date1Status,
+    date2: req.body.date2,
+    date2Status: req.body.dateStatus,
+    date3: req.body.date3,
+    date3Status: req.body.date3Status
+  }
+  db.property.find(property, function(req, result){
+    res.redirect('/properties');
   });
 });
 
@@ -65,22 +73,24 @@ app.get('/properties/create', function(req, res) {
 });
 
 app.post('/property_created', function(req, res) {
-  var newUser = {
+  var newProperty = {
     pic_url: req.body.pic_url,
     name: req.body.name,
-    price: req.body.price
-    description: req.body.description
-    date1: req.body.date1
-    date1Status: req.body.date1Status
-    date2: req.body.date2
-    date2Status: req.body.dateStatus
-    date3: req.body.date3
+    price: req.body.price,
+    description: req.body.description,
+    date1: req.body.date1,
+    date1Status: req.body.date1Status,
+    date2: req.body.date2,
+    date2Status: req.body.dateStatus,
+    date3: req.body.date3,
     date3Status: req.body.date3Status
   }
-  db.user.insert(newProperty, function(req, result){
+  db.property.insert(newProperty, function(req, result){
     res.redirect('/properties/created');
   });
 });
+
+// db.properties.find().forEach(function(doc){print("Customer Name: "+doc.first_name});
 
 
 app.listen(3000, function(){
