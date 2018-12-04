@@ -65,6 +65,7 @@ app.get('/properties', function(req, res) {
     res.redirect('/properties');
   });
 });
+// db.properties.find().forEach(function(doc){print("Customer Name: "+doc.first_name});
 
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
@@ -89,8 +90,6 @@ app.post('/property_created', function(req, res) {
     res.redirect('/properties/created');
   });
 });
-
-// db.properties.find().forEach(function(doc){print("Customer Name: "+doc.first_name});
 
 
 app.listen(3000, function(){
