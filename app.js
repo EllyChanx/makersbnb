@@ -58,23 +58,30 @@ app.get('/properties', function(req, res) {
   });
 });
 
-
-
-
-
-
-
-
-app.post('/user/add', function(req, res){
-  var newUser = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email
-  }
-  db.user.insert(newUser, function(req, result){
-    res.redirect('/');
+app.get('/properties/create', function(req, res) {
+  res.render('properties/create', {
+    title: 'Properties create'
   });
 });
+
+app.post('/property_created', function(req, res) {
+  var newUser = {
+    pic_url: req.body.pic_url,
+    name: req.body.name,
+    price: req.body.price
+    description: req.body.description
+    date1: req.body.date1
+    date1Status: req.body.date1Status
+    date2: req.body.date2
+    date2Status: req.body.dateStatus
+    date3: req.body.date3
+    date3Status: req.body.date3Status
+  }
+  db.user.insert(newProperty, function(req, result){
+    res.redirect('/properties/created');
+  });
+});
+
 
 app.listen(3000, function(){
   console.log('Server started on port 3000.');
