@@ -1,10 +1,10 @@
-<% include partials/header %>
+
 
 <!DOCTYPE html>
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link href="background.css" rel="stylesheet" type="text/css">
+  <link href="index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="main">
@@ -12,23 +12,24 @@
   <div>
     <ul>
     <% properties.forEach(function(property){ %>
-    <a href="<%= property.pic_url %>">pic<a><br>
-      <li>
-        Property name: <%= property.name %><br>
-        Price per night: <%= property.price %><br>
-        Description: <%= property.description %><br>
-        Date: <%= property.date1 %>
-        Availability: <%= property.date1Status %><br>
-        Date: <%= property.date2 %>
-        Availability: <%= property.date2Status %><br>
-        Date: <%= property.date3 %>
-        Availability: <%= property.date3Status %>
-        <br><br>
+    <li>
+      <div class="property_list">
+        <div class="property_data">
+          <h2><%= property.name %></h2>
+          <img src='<%= property.pic_url %>'<br><br>
+          <strong>Price: £<%= property.price %></strong><br><br>
+          <strong>Description: </strong><%= property.description %><br><br>
+          <strong>Date: </strong><%= property.date1 %> : <%= property.date1Status %><br>
+          <strong>Date: </strong><%= property.date2 %> : <%= property.date2Status %><br>
+          <strong>Date: </strong><%= property.date3 %> : <%= property.date3Status %>
+          <br><br>
+
+          <% }); %>
+
+        </div>
+      </div>
       </li>
-      <% }); %>
     </ul>
   </div>
 </body>
 </html>
-
-<% include partials/footer %>
