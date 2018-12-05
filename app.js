@@ -68,23 +68,12 @@ app.post('/user/signup', function(req, res) {
 });
 
 app.get('/properties', function(req, res) {
-  var property = {
-    pic_url: req.body.pic_url,
-    name: req.body.name,
-    price: req.body.price,
-    description: req.body.description,
-    date1: req.body.date1,
-    date1Status: req.body.date1Status,
-    date2: req.body.date2,
-    date2Status: req.body.dateStatus,
-    date3: req.body.date3,
-    date3Status: req.body.date3Status
-  }
-  db.property.find(property, function(req, result){
-    res.redirect('/properties');
+  db.properties.find(function(err, docs){
+    res.render('properties', {
+      properties: docs
+    });
   });
 });
-// db.properties.find().forEach(function(doc){print("Customer Name: "+doc.first_name});
 
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
