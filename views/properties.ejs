@@ -1,0 +1,34 @@
+<% include partials/header %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="signup.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="main">
+
+  <div>
+    <ul>
+    <% properties.forEach(function(property){ %>
+    <a href="<%= property.pic_url %>">pic<a><br>
+      <li>
+        Property name: <%= property.name %><br>
+        Price per night: <%= property.price %><br>
+        Description: <%= property.description %><br>
+        Date: <%= property.date1 %>
+        Availability: <%= property.date1Status %><br>
+        Date: <%= property.date2 %>
+        Availability: <%= property.date2Status %><br>
+        Date: <%= property.date3 %>
+        Availability: <%= property.date3Status %>
+        <br><br>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+</html>
+
+<% include partials/footer %>
