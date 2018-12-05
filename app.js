@@ -1,8 +1,9 @@
 var express = require('express');
+var dotenv = require('dotenv').config()
 var bodyParser = require('body-parser');
 var path = require('path');
 var mongojs = require('mongojs');
-var db = mongojs('istaytest', ['users', 'properties']);
+var db = mongojs(process.env.DB_URL);
 
 
 var app = express();
