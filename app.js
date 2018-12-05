@@ -93,8 +93,8 @@ app.post('/property_created', function(req, res) {
     date3: req.body.date3,
     date3Status: req.body.date3Status
   }
-  db.property.insert(newProperty, function(req, result){
-    res.redirect('/properties/created');
+  db.properties.insert(newProperty, function(req, result){
+    res.redirect('/properties');
   });
 });
 
