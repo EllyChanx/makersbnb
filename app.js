@@ -55,14 +55,13 @@ app.post('/user/signup', function(req, res) {
     password: req.body.password
     }
   db.users.insert(newUser, function(err) {
-      console.log('added new user')
-
       if (err) {
         return res.status(500).send({
             success: false,
             message: 'User already exist!'
         });
       }
+    console.log('added new user')
     res.redirect('/');
   });
 });
@@ -110,6 +109,11 @@ app.post('/property_created', function(req, res) {
   });
 });
 
+app.get('/properties/created', function(req, res) {
+  res.render('properties/created', {
+    title: 'Properties created'
+  });
+});
 
 app.listen(3000, function(){
   console.log('Server started on port 3000.');
