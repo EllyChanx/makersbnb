@@ -19,6 +19,13 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
 .subtext {
   font-size: 1em;
   letter-spacing: 5px;
@@ -44,6 +51,13 @@ form {
 }
 
 input {
+  color: grey;
+  padding: 5px;
+  width: 200px;
+}
+
+textarea {
+  color: grey;
   padding: 5px;
   width: 200px;
 }
