@@ -13,11 +13,13 @@
     <input class="butt" type="submit" value="Create">
   </form>
 
-  <form method="post" action="/properties/bydate">
-    <strong>Filter by date: </strong><input type="date" value="my_date">
+  <form method="post" action="/properties_bydate">
+    <strong>Filter by date: </strong><input type="date" value="my_date" name="my_date">
+    <input class="butt" type="submit" value="Search">
   </form>
 
   <div>
+
     <ul>
     <% properties.forEach(function(property){ %>
     <li>
