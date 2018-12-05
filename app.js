@@ -74,6 +74,26 @@ app.get('/properties', function(req, res) {
   });
 });
 
+// app.post('/properties_bydate', function(req, res) {
+//   // var av = { date: req.body.date }
+//   db.properties.find({$or: [{ date1: req.body.date},{ date2: req.body.date},{ date3: req.body.date}]}, function(err, docs){
+//     res.redirect('properties/bydate', {
+//       properties: docs
+//     });
+//   });
+// });
+
+app.get('/properties/bydate', function(req, res) {
+  db.properties.find({$or: [{ date1: "2018-12-06"},{ date2: "2018-12-06"},{ date3: "2018-12-06"}]}, function(err, docs){
+    res.render('properties/bydate', {
+      properties: docs
+    });
+  });
+});
+
+
+
+
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
     title: 'Properties create'
@@ -87,11 +107,11 @@ app.post('/property_created', function(req, res) {
     price: req.body.price,
     description: req.body.description,
     date1: req.body.date1,
-    date1Status: req.body.date1Status,
+    date1Status: 'Available',
     date2: req.body.date2,
-    date2Status: req.body.dateStatus,
+    date2Status: 'Available',
     date3: req.body.date3,
-    date3Status: req.body.date3Status
+    date3Status: 'Available'
   }
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties');

@@ -10,6 +10,13 @@
 <body class="main">
 
   <div>
+    <form id="check_availability" method="get" action="/properties/bydate">
+      When do you want to stay?
+      <input type="date" name="date">
+      <br>
+      <input class="butt" type="submit" value="Search">
+    </form>
+
     <ul>
     <% properties.forEach(function(property){ %>
     <a href="<%= property.pic_url %>">pic<a><br>
