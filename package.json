@@ -1,13 +1,13 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "simple customer managment app",
+  "description": "iStay",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently --kill-others \"mongod\" \"mongo\" \"node app.js\""
   },
-  "author": "mateusz",
-  "license": "ISC",
+  "author": "team cool",
+  "license": "1.0.0",
   "dependencies": {
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",

@@ -98,9 +98,10 @@ password
 - javascript
 - jasmine
 - jquery
-- node - What is the testing language for this????
 - html / css
-- psql / mongo
+- mongo
+- concurrently (multiple terminal windows)
+
 
 
 # engineering project req.
