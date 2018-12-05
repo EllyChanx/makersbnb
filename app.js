@@ -20,12 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-db.on('error', function(err) {
-  console.log('Err: ', err);
-});
-
-
-
 app.get('/', function(req, res){
   res.render('index', {
     title: 'iStay'
@@ -33,8 +27,19 @@ app.get('/', function(req, res){
 });
 
 app.post('/user/login', function(req, res){
-  // FIND DATA IN DATABASE
-  res.redirect('/');
+var logIn = {
+  email: req.body.email,
+  password: req.body.password
+}
+db.users.find(logIn, function(err, doc){
+  if (doc.length === 0 || err) {
+      return res.status(500).send({
+          success: false,
+          message: 'no user found!'
+      });
+    }
+    res.redirect('/');
+  });
 });
 
 app.get('/user/signup', function(req, res){
@@ -53,11 +58,10 @@ app.post('/user/signup', function(req, res) {
       console.log('added new user')
 
       if (err) {
-          // you could avoid http status if you want. I put error 500
-          return res.status(500).send({
-              success: false,
-              message: 'User already exist!'
-          });
+        return res.status(500).send({
+            success: false,
+            message: 'User already exist!'
+        });
       }
     res.redirect('/');
   });
