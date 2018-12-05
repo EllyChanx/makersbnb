@@ -48,6 +48,17 @@ I would like my property to remain listed and bookable
 ```
 
 
+
+# how to run the programme:
+
+- npm install
+- set up database (give instructions)
+- node app.js
+- navigate to localhost://3000
+
+
+
+
 # stuff to remember
 One night stay
 user says the date they want
