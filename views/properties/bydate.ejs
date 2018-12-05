@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +12,6 @@
     <input class="butt" type="submit" value="Create">
   </form>
 
-  <form method="post" action="/properties/bydate">
-    <strong>Filter by date: </strong><input type="date" value="my_date">
-  </form>
-
   <div>
     <ul>
     <% properties.forEach(function(property){ %>
@@ -27,10 +22,11 @@
           <img src='<%= property.pic_url %>'<br><br>
           <strong>Price: £<%= property.price %></strong><br><br>
           <strong>Description: </strong><%= property.description %><br><br>
-          <strong>Date: </strong><%= property.date1 %> : <%= property.date1Status %><br>
-          <strong>Date: </strong><%= property.date2 %> : <%= property.date2Status %><br>
-          <strong>Date: </strong><%= property.date3 %> : <%= property.date3Status %>
-          <br><br>
+          <form method="post" action="/properties/book">
+            <input class="butt" type="submit" value="Book Me">
+          </form>
+
+          <br>
 
           <% }); %>
 

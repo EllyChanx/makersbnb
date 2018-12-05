@@ -1,0 +1,137 @@
+
+.main {
+  background-color: #A7B9A8;
+  text-align: center;
+  color: white;
+  font-family: "";
+  font-size: 1.5em;
+  background-image: url(istay-logo.png);
+}
+
+.top-right {
+  text-align: right;
+}
+
+h1 {
+  font-size: 4em;
+  letter-spacing: 15px;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+.subtext {
+  font-size: 1em;
+  letter-spacing: 5px;
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+.box {
+  width: 350px;
+  padding: 10px;
+  text-align: center;
+  background-color: #B4C5B8;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: white;
+}
+
+img {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+.property_data {
+    width: 700px;
+    padding: 10px;
+    text-align: center;
+    font-family: "Montserrat";
+    background-color: #B4C5B8;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+form {
+  font-size: 0.7em;
+  font-family: "Montserrat";
+}
+
+input {
+  color: grey;
+  padding: 5px;
+  width: 200px;
+}
+
+textarea {
+  color: grey;
+  padding: 5px;
+  width: 200px;
+}
+
+    /* Reset */
+.butt {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Custom */
+.butt {
+  display: inline-block;
+  position: relative;
+  padding: 20px 38px;
+  top: 0;
+  font-size: 30px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  border-bottom: 1px solid #fff;
+  background: #869386;
+  color: #fff;
+  box-shadow: 0px 0px 0px #869386;
+
+      -webkit-transform: translateZ(0);
+         -moz-transform: translateZ(0);
+          -ms-transform: translateZ(0);
+              transform: translateZ(0);
+
+      -webkit-transition: all 0.2s ease;
+         -moz-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+              transition: all 0.2s ease;
+}
+
+.butt:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px #869386;
+
+      -webkit-transform: rotateX(20deg);
+         -moz-transform: rotateX(20deg);
+          -ms-transform: rotateX(20deg);
+              transform: rotateX(20deg);
+}
+
+.butt:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
