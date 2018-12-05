@@ -75,6 +75,20 @@ app.get('/properties', function(req, res) {
   });
 });
 
+app.post('/properties_bydate', function(req, res) {
+  app.set("myDate", req.body.my_date)
+  res.redirect('properties/bydate')
+});
+
+app.get('/properties/bydate', function(req, res) {
+  var myDate = app.get("myDate");
+  db.properties.find( {$or: [{ date1: myDate},{ date2: myDate},{ date3: myDate}]} ,function(err, docs){
+    res.render('properties/bydate', {
+      properties: docs
+    });
+  });
+});
+
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
     title: 'Properties create'
