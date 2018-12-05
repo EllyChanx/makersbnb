@@ -101,6 +101,7 @@ password
 - html / css
 - mongo
 - concurrently (multiple terminal windows)
+- dotenv
 
 
 
