@@ -102,11 +102,11 @@ app.post('/property_created', function(req, res) {
     price: req.body.price,
     description: req.body.description,
     date1: req.body.date1,
-    date1Status: 'Available',
+    date1Status: 'available',
     date2: req.body.date2,
-    date2Status: 'Available',
+    date2Status: 'available',
     date3: req.body.date3,
-    date3Status: 'Available'
+    date3Status: 'available'
   }
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties');
