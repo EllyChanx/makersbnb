@@ -98,6 +98,23 @@ app.get('/properties/bydate', function(req, res) {
   });
 });
 
+// to work on - get property object passing to this route from submitbutton
+// make this work
+app.post('/properties_book', function(req, res) {
+  // app.set("myBooking", req.body.book_me)
+  console.log(req.body.id);
+  res.redirect('properties/book')
+});
+
+app.get('/properties/book', function(req, res){
+  var myBooking = app.get("myBooking")
+  db.properties.find(myBooking, function(err, docs){
+    res.render('properties/book', {
+      properties: docs
+    });
+  });
+});
+
 //CREATE PROPERTY
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
@@ -153,8 +170,6 @@ app.get('/properties/pendingproperties', function(req, res) {
     });
   });
 });
-
-
 
 
 app.listen(3000, function(){

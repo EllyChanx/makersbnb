@@ -10,7 +10,7 @@
 
   <form class="top-right" method="get" action="/properties/create">
     <input class="butt" type="submit" value="Create">
-  </form> 
+  </form>
 
   <div>
     <ul>
@@ -18,12 +18,12 @@
     <li>
       <div class="property_list">
         <div class="property_data">
+          <form method="post" action="/properties_book">
           <h2><%= property.name %></h2>
           <img class="pro_url" src='<%= property.pic_url %>'><br><br>
           <strong>Price: £<%= property.price %></strong><br><br>
           <strong>Description: </strong><%= property.description %><br><br>
-          <form method="post" action="/properties/book">
-            <input class="butt" type="submit" value="Book Me">
+          <input id="book" class="butt" type="submit" value="Book Me>" name=<%= property.name %>>
           </form>
 
           <br>
