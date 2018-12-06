@@ -24,14 +24,23 @@
 
   <h2>Your listed property:</h2>
 
-  <div class="property_list">
-    <div class="property_data">
-          <h3>Property name</h3>
-          <p>Price:</p>
-          <p>Description:</p>
-          <p>Dates:</p>
-    </div>
-  </div>
+  <ul>
+  <% properties.forEach(function(property){ %>
+  <li>
+    <div class="property_list">
+      <div class="property_data">
+        <h2><%= property.name %></h2>
+        <img src='<%= property.pic_url %>'<br><br>
+        <strong>Price: £<%= property.price %></strong><br><br>
+        <strong>Description: </strong><%= property.description %><br><br>
+        <strong>Date: </strong><%= property.date1 %> : <%= property.date1Status %><br>
+        <strong>Date: </strong><%= property.date2 %> : <%= property.date2Status %><br>
+        <strong>Date: </strong><%= property.date3 %> : <%= property.date3Status %>
+        <br><br>
+
+        <% }); %>
+    </li>
+  </ul>
 
 
 
