@@ -27,22 +27,24 @@ app.get('/', function(req, res){
   });
 });
 
+
+// USERS
 app.post('/user/login', function(req, res){
-var logIn = {
-  email: req.body.email,
-  password: req.body.password
-}
+  var logIn = {
+    email: req.body.email,
+    password: req.body.password
+  }
   app.set("userEmail", req.body.email)
 
-db.users.find(logIn, function(err, doc){
-  if (doc.length === 0 || err) {
-      return res.status(500).send({
-          success: false,
-          message: 'no user found!'
-      });
-    }
-    res.redirect('/properties');
-  });
+  db.users.find(logIn, function(err, doc){
+    if (doc.length === 0 || err) {
+        return res.status(500).send({
+            success: false,
+            message: 'no user found!'
+        });
+      }
+      res.redirect('/properties');
+    });
 });
 
 app.get('/user/signup', function(req, res){
@@ -69,6 +71,9 @@ app.post('/user/signup', function(req, res) {
   });
 });
 
+// PROPERTIES
+
+// LIST ALL
 app.get('/properties', function(req, res) {
   db.properties.find(function(err, docs){
     res.render('properties', {
@@ -77,6 +82,7 @@ app.get('/properties', function(req, res) {
   });
 });
 
+//LIST BY DATE
 app.post('/properties_bydate', function(req, res) {
   app.set("myDate", req.body.my_date)
   res.redirect('properties/bydate')
@@ -92,22 +98,12 @@ app.get('/properties/bydate', function(req, res) {
   });
 });
 
-
-db.properties.find( {$or: [{ date1: '2018-12-20'},{ date2: '2018-12-20'},{ date3: '2018-12-20'}]}).sort('price')
-
+//CREATE PROPERTY
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
     title: 'Properties create'
   });
 });
-
-app.get('/properties/myproperties', function(req, res) {
-  res.render('properties/myproperties', {
-    title: ' My Properties'
-  });
-});
-
-
 app.post('/property_created', function(req, res) {
   var newProperty = {
     pic_url: req.body.pic_url,
@@ -120,7 +116,7 @@ app.post('/property_created', function(req, res) {
     date2Status: 'available',
     date3: req.body.date3,
     date3Status: 'available',
-    user: app.set("userEmail", req.body.email)
+    user: app.get("userEmail")
   }
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties/created');
@@ -128,13 +124,17 @@ app.post('/property_created', function(req, res) {
 });
 
 app.get('/properties/created', function(req, res) {
-  res.render('properties/created', {
-    title: 'Properties created'
+  var user = app.get("userEmail")
+  db.properties.find({ user: user }, function(err, docs){
+    res.render('properties/created', {
+      properties: docs
+    });
   });
 });
 
+// MY PROPERTIES
 app.get('/properties/myproperties', function(req, res) {
-  var user = app.get("userEmail", req.body.email);
+  var user = app.get("userEmail");
   db.properties.find( { user: user} ,function(err, docs){
     res.render('properties/myproperties', {
       properties: docs
@@ -142,18 +142,14 @@ app.get('/properties/myproperties', function(req, res) {
   });
 });
 
-app.post('/properties_bystatus', function(req, res) {
-  res.redirect('/properties/pending');
-})
-// Finish this please
-app.get('/properties/pending', function(req, res) {
-  res.render('properties/pending')
-  // var user = app.get("userEmail", req.body.email);
-  // db.properties.find( { user: user} ,function(err, docs){
-  //   res.render('properties/pending', {
-  //     properties: docs
-  //   });
-  // });
+// PENDING BY USERS
+app.get('/properties/pendingproperties', function(req, res) {
+  var user = app.get("userEmail");
+  db.properties.find( { user: user} ,function(err, docs){
+    res.render('properties/pendingproperties', {
+      properties: docs
+    });
+  });
 });
 
 
