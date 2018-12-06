@@ -32,6 +32,8 @@ var logIn = {
   email: req.body.email,
   password: req.body.password
 }
+  app.set("userEmail", req.body.email)
+
 db.users.find(logIn, function(err, doc){
   if (doc.length === 0 || err) {
       return res.status(500).send({
@@ -106,7 +108,8 @@ app.post('/property_created', function(req, res) {
     date2: req.body.date2,
     date2Status: 'available',
     date3: req.body.date3,
-    date3Status: 'available'
+    date3Status: 'available',
+    user: app.set("userEmail", req.body.email)
   }
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties');
@@ -118,6 +121,29 @@ app.get('/properties/created', function(req, res) {
     title: 'Properties created'
   });
 });
+
+app.get('/properties/myproperties', function(req, res) {
+  var user = app.get("userEmail", req.body.email);
+  db.properties.find( { user: user} ,function(err, docs){
+    res.render('properties/myproperties', {
+      properties: docs
+    });
+  });
+});
+
+
+// Finish this please
+app.get('/properties/pendingproperties', function(req, res) {
+  var user = app.get("userEmail", req.body.email);
+  db.properties.find( { user: user} ,function(err, docs){
+    res.render('properties/pendingproperties', {
+      properties: docs
+    });
+  });
+});
+
+
+
 
 app.listen(3000, function(){
   console.log('Server started on port 3000.');
