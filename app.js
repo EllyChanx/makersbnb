@@ -142,10 +142,9 @@ app.get('/properties/myproperties', function(req, res) {
   });
 });
 
-
 // PENDING BY USERS
 app.get('/properties/pendingproperties', function(req, res) {
-  var user = app.get("userEmail", req.body.email);
+  var user = app.get("userEmail");
   db.properties.find( { user: user} ,function(err, docs){
     res.render('properties/pendingproperties', {
       properties: docs
