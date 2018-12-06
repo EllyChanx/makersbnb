@@ -142,15 +142,18 @@ app.get('/properties/myproperties', function(req, res) {
   });
 });
 
-
+app.post('/properties_bystatus', function(req, res) {
+  res.redirect('/properties/pending');
+})
 // Finish this please
-app.get('/properties/pendingproperties', function(req, res) {
-  var user = app.get("userEmail", req.body.email);
-  db.properties.find( { user: user} ,function(err, docs){
-    res.render('properties/pendingproperties', {
-      properties: docs
-    });
-  });
+app.get('/properties/pending', function(req, res) {
+  res.render('properties/pending')
+  // var user = app.get("userEmail", req.body.email);
+  // db.properties.find( { user: user} ,function(err, docs){
+  //   res.render('properties/pending', {
+  //     properties: docs
+  //   });
+  // });
 });
 
 
