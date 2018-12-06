@@ -118,14 +118,16 @@ app.post('/property_created', function(req, res) {
     date3Status: 'available',
     user: app.get("userEmail")
   }
+
+  app.set("currentProperty", newProperty)
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties/created');
   });
 });
 
 app.get('/properties/created', function(req, res) {
-  var user = app.get("userEmail")
-  db.properties.find({ user: user }, function(err, docs){
+  var lastCreated = app.get("currentProperty")
+  db.properties.find(lastCreated, function(err, docs){
     res.render('properties/created', {
       properties: docs
     });
@@ -135,7 +137,7 @@ app.get('/properties/created', function(req, res) {
 // MY PROPERTIES
 app.get('/properties/myproperties', function(req, res) {
   var user = app.get("userEmail");
-  db.properties.find( { user: user} ,function(err, docs){
+  db.properties.find( { user: user }, function(err, docs){
     res.render('properties/myproperties', {
       properties: docs
     });
