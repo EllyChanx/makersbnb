@@ -101,6 +101,13 @@ app.get('/properties/create', function(req, res) {
   });
 });
 
+app.get('/properties/myproperties', function(req, res) {
+  res.render('properties/myproperties', {
+    title: ' My Properties'
+  });
+});
+
+
 app.post('/property_created', function(req, res) {
   var newProperty = {
     pic_url: req.body.pic_url,
