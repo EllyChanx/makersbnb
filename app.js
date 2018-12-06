@@ -22,7 +22,6 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 app.get('/', function(req, res){
-  app.set("userEmail", 'N/A')
   res.render('index', {
     title: 'iStay'
   });
@@ -39,13 +38,16 @@ app.post('/user/login', function(req, res){
 
   db.users.find(logIn, function(err, doc){
     if (doc.length === 0 || err) {
-        return res.status(500).send({
-            success: false,
-            message: 'no user found!'
-        });
-      }
+      return res.redirect('/loginerror');
+    };
       res.redirect('/properties');
     });
+});
+
+app.get('/loginerror', function(req, res){
+  res.render('errorlogin', {
+    title: 'iStay'
+  });
 });
 
 app.get('/user/signup', function(req, res){
@@ -119,16 +121,14 @@ app.post('/property_created', function(req, res) {
     date3Status: 'available',
     user: app.get("userEmail")
   }
-
-  app.set("currentProperty", newProperty)
   db.properties.insert(newProperty, function(req, result){
     res.redirect('/properties/created');
   });
 });
 
 app.get('/properties/created', function(req, res) {
-  var lastCreated = app.get("currentProperty")
-  db.properties.find(lastCreated, function(err, docs){
+  var user = app.get("userEmail")
+  db.properties.find({ user: user }, function(err, docs){
     res.render('properties/created', {
       properties: docs
     });
@@ -138,7 +138,7 @@ app.get('/properties/created', function(req, res) {
 // MY PROPERTIES
 app.get('/properties/myproperties', function(req, res) {
   var user = app.get("userEmail");
-  db.properties.find( { user: user }, function(err, docs){
+  db.properties.find( { user: user} ,function(err, docs){
     res.render('properties/myproperties', {
       properties: docs
     });
