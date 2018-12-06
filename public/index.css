@@ -48,6 +48,7 @@ input {
   width: 200px;
 }
 
+
     /* Reset */
 .butt {
   background: transparent;
@@ -62,7 +63,7 @@ input {
 .butt {
   display: inline-block;
   position: relative;
-  padding: 20px 38px;
+  padding: 20px 6px;
   top: 0;
   font-size: 30px;
   font-family: "Open Sans", Helvetica;

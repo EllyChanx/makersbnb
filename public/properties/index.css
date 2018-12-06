@@ -76,7 +76,7 @@ form {
 input {
   color: grey;
   padding: 5px;
-  width: 200px;
+  width: 180px;
 }
 
 textarea {
@@ -84,6 +84,58 @@ textarea {
   padding: 5px;
   width: 200px;
 }
+
+.smallbutt {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Custom */
+.smallbutt {
+  display: inline-block;
+  position: relative;
+  padding: 7px 6px;
+  width: 100px;
+  top: 0;
+  font-size: 20px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  border-bottom: 1px solid #fff;
+  background: #869386;
+  color: #fff;
+  box-shadow: 0px 0px 0px #869386;
+
+      -webkit-transform: translateZ(0);
+         -moz-transform: translateZ(0);
+          -ms-transform: translateZ(0);
+              transform: translateZ(0);
+
+      -webkit-transition: all 0.2s ease;
+         -moz-transition: all 0.2s ease;
+          -ms-transition: all 0.2s ease;
+              transition: all 0.2s ease;
+}
+
+.smallbutt:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px #869386;
+
+      -webkit-transform: rotateX(20deg);
+         -moz-transform: rotateX(20deg);
+          -ms-transform: rotateX(20deg);
+              transform: rotateX(20deg);
+}
+
+.smallbutt:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+
 
     /* Reset */
 .butt {
@@ -99,9 +151,9 @@ textarea {
 .butt {
   display: inline-block;
   position: relative;
-  padding: 20px 38px;
+  padding: 20px 4px;
   top: 0;
-  font-size: 30px;
+  font-size: 28px;
   font-family: "Open Sans", Helvetica;
   border-radius: 4px;
   border-bottom: 1px solid #fff;
