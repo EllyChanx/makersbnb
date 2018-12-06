@@ -1,0 +1,35 @@
+
+
+<html>
+
+<head>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href="index.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="main">
+
+  <form class="top-right" method="get" action="/">
+    <input class="butt" type="submit" value="Logout">
+  </form>
+
+
+  <div>
+    <ul>
+    <% properties.forEach(function(property){ %>
+    <a href="<%= property.pic_url %>">pic<a><br>
+      <li>
+        Property name: <%= property.name %><br>
+        Price per night: <%= property.price %><br>
+        Description: <%= property.description %><br>
+        <br><br>
+      </li>
+      <% }); %>
+    </ul>
+  </div>
+
+
+</body>
+
+</html>

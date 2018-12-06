@@ -12,6 +12,10 @@
   <form class="top-right" method="get" action="/properties/create">
     <input class="butt" type="submit" value="Create">
   </form>
+<br/>
+  <form class="top-right" method="get" action="/properties/myproperties">
+    <input class="butt" type="submit" value="My Properties">
+  </form>
 
   <form method="post" action="/properties_bydate">
     <strong>Filter by date: </strong><input type="date" value="my_date" name="my_date">
@@ -24,6 +28,8 @@
     <% properties.forEach(function(property){ %>
     <li>
       <div class="property_list">
+
+
         <div class="property_data">
           <h2><%= property.name %></h2>
           <img src='<%= property.pic_url %>'<br><br>
