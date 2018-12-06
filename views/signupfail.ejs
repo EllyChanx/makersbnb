@@ -1,0 +1,42 @@
+<% include partials/header %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href="signup.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="main">
+
+  <div>
+  <h1>Register and Use iStay. Today.</h1>
+
+  <div class="box">
+
+    <p class="error_msg">User already existed. Please sign up again.</p>
+
+    <form method="post" action="/user/signup">
+
+      <div>
+
+      <input class="input" type="text" name="name" placeholder="Name">
+      <br/>
+
+      <input class="input" type="text" name="email" placeholder="Email">
+      <br/>
+
+      <input class="input" type="text" name="password" placeholder="Password">
+      <br/>
+      <input class="submitbutton" type="submit" value="Confirm">
+
+      </div>
+
+    </form>
+
+  </div>
+  </div>
+</body>
+</html>
+
+<% include partials/footer %>

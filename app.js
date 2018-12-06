@@ -64,13 +64,20 @@ app.post('/user/signup', function(req, res) {
     }
   db.users.insert(newUser, function(err) {
       if (err) {
-        return res.status(500).send({
-            success: false,
-            message: 'User already exist!'
-        });
-      }
+        return res.redirect('/user/signupfail');
+        // return res.status(500).send({
+        //     success: false,
+        //     message: 'User already exist!'
+        // });
+      };
     console.log('added new user')
     res.redirect('/');
+  });
+});
+
+app.get('/user/signupfail', function(req, res) {
+  res.render('signupfail', {
+    title: 'Signup Failed'
   });
 });
 

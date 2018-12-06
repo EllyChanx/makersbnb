@@ -9,13 +9,17 @@
 
 <body class="main">
 
+  <div class="right">
+
   <form class="top-right" method="get" action="/properties/create">
     <input class="butt" type="submit" value="Create">
   </form>
-<br/>
+  <br/>
   <form class="top-right" method="get" action="/properties/myproperties">
     <input class="butt" type="submit" value="My Properties">
   </form>
+
+  </div>
 
   <form method="post" action="/properties_bydate">
     <strong>Filter by date: </strong><input type="date" value="my_date" name="my_date">
@@ -28,7 +32,7 @@
     <li>
       <div class="property_list">
 
-
+        <br>
         <div class="property_data">
           <h2><%= property.name %></h2>
           <img class="pro_url" src='<%= property.pic_url %>'>
@@ -47,5 +51,6 @@
       </li>
     </ul>
   </div>
+
 </body>
 </html>
