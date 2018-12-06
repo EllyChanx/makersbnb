@@ -39,7 +39,7 @@ db.users.find(logIn, function(err, doc){
           message: 'no user found!'
       });
     }
-    res.redirect('/');
+    res.redirect('/properties');
   });
 });
 
@@ -82,12 +82,16 @@ app.post('/properties_bydate', function(req, res) {
 
 app.get('/properties/bydate', function(req, res) {
   var myDate = app.get("myDate");
-  db.properties.find( {$or: [{ date1: myDate},{ date2: myDate},{ date3: myDate}]} ,function(err, docs){
+
+  db.properties.find( {$or: [{ date1: myDate},{ date2: myDate},{ date3: myDate}]}, null, {sort: '-price'}, function(err, docs){
     res.render('properties/bydate', {
       properties: docs
     });
   });
 });
+
+
+db.properties.find( {$or: [{ date1: '2018-12-20'},{ date2: '2018-12-20'},{ date3: '2018-12-20'}]}).sort('price')
 
 app.get('/properties/create', function(req, res) {
   res.render('properties/create', {
@@ -109,7 +113,7 @@ app.post('/property_created', function(req, res) {
     date3Status: 'available'
   }
   db.properties.insert(newProperty, function(req, result){
-    res.redirect('/properties');
+    res.redirect('/properties/created');
   });
 });
 
