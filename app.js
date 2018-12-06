@@ -22,9 +22,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 app.get('/', function(req, res){
+  app.set("userEmail", 'N/A')
   res.render('index', {
     title: 'iStay'
-    app.set("userEmail", 'N/A')
   });
 });
 
