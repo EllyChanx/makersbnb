@@ -104,3 +104,7 @@ input {
   max-height: 500px;
   max-width: 600px;
 }
+.error{
+  color: red;
+  font-size: 17px;
+}
