@@ -8,8 +8,18 @@
 
 <body class="main">
 
+  <form class="top-right" method="get" action="/">
+    <input class="butt" type="submit" value="Logout">
+  </form>
+  <br>
+
   <form class="top-right" method="get" action="/properties/create">
     <input class="butt" type="submit" value="Create">
+  </form>
+  <br>
+
+  <form class="top-right" method="get" action="/properties/myproperties">
+    <input class="butt" type="submit" value="My Properties">
   </form>
 
   <div>
@@ -23,7 +33,7 @@
           <img class="pro_url" src='<%= property.pic_url %>'><br><br>
           <strong>Price: £<%= property.price %></strong><br><br>
           <strong>Description: </strong><%= property.description %><br><br>
-          <input id="book" class="butt" type="submit" value="Book Me>" name=<%= property.name %>>
+          <input id="book" class="butt" type="submit" value="Book Me" name=<%= property.name %>>
           </form>
 
           <br>
