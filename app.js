@@ -41,7 +41,7 @@ app.post('/user/login', function(req, res){
       return res.redirect('/loginerror');
     };
       res.redirect('/properties');
-    });
+  });
 });
 
 app.get('/loginerror', function(req, res){
@@ -112,15 +112,24 @@ app.get('/properties/bydate', function(req, res) {
 // to work on - get property object passing to this route from submitbutton
 // make this work
 app.post('/:id', function(req, res) {
-  var id = req.params.id;
+  var id = req.params.id
+
+  // '"_id" : ObjectId("' + req.params.id + '")'
+  // console.log(db.users.find()
+  app.set("id", id)
   console.log(id);
-  app.set("id", req.params.id)
-  res.redirect('properties/book')
+
+  res.redirect('/properties/book')
 });
 
 app.get('/properties/book', function(req, res){
-  var myBooking = app.get("id")
-  db.properties.find({_id: myBooking}, function(err, docs){
+  var id = app.get("id")
+
+  console.log('after - ' + id)
+  db.properties.find(id, function(err, docs){
+  if (docs.length === 0 || err) {
+    console.log('nothing found')
+  };
     res.render('properties/book', {
       properties: docs
     });

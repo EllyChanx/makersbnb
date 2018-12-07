@@ -17,7 +17,7 @@
     <form class="top_button" method="get" action="/properties/myproperties">
       <input class="butt" type="submit" value="My Properties">
     </form>
-    
+
     <form class="top_button" method="get" action="/">
       <input class="butt" type="submit" value="Logout">
     </form>
@@ -35,7 +35,7 @@
           <img class="pro_url" src='<%= property.pic_url %>'><br><br>
           <strong>Price: £<%= property.price %></strong><br><br>
           <strong>Description: </strong><%= property.description %><br><br>
-          <input id="book" class="butt" type="submit" value="Book Me" name=<%= property.name %>>
+          <input id="book" class="butt" type="submit" value="Book Me" name=<%= property._id %>>
           </form>
 
           <br>
