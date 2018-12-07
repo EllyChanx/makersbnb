@@ -10,44 +10,48 @@
 
 <body class="main">
 
-  <form class="top-right" method="get" action="/">
-    <input class="butt" type="submit" value="Logout">
-  </form>
 
+  <div class="menu_bar">
+    <form class="top_button" method="get" action="/">
+      <input class="butt" type="submit" value="Logout">
+    </form>
 
-  <form class="top-right" method="get" action="/properties">
-    <input class="butt" type="submit" value="Back">
-  </form>
-
-<h2>List your property:</h2>
-
-  <div class="box">
-
-  <form id="create_property" method="post" action="/property_created">
-
-
-    <br>
-    <input type="text" name="name" placeholder="property name">
-    <br/><br>
-    <input type="number" name="price" placeholder="price per night">
-    <br/><br>
-    <input type="text" name="pic_url" placeholder="picture url">
-    <br/><br>
-    <textarea name="description" placeholder="Property description ..."></textarea>
-    <br/><br>
-    Enter up to 3 available dates:
-    <br><br>
-    <input type="date" name="date1">
-    <br>
-    <input type="date" name="date2">
-    <br>
-    <input type="date" name="date3">
-    <br><br>
-    <input class="butt" type="submit" value="List">
-  </form>
-  <br>
+    <form class="top_button" method="get" action="/properties">
+      <input class="butt" type="submit" value="Back">
+    </form>
   </div>
 
+  <div class="content">
+    <h2>List your property:</h2>
+
+    <div class="box">
+
+    <form id="create_property" method="post" action="/property_created">
+
+
+      <br>
+      <input type="text" name="name" placeholder="property name">
+      <br/><br>
+      <input type="number" name="price" placeholder="price per night">
+      <br/><br>
+      <input type="text" name="pic_url" placeholder="picture url">
+      <br/><br>
+      <textarea name="description" placeholder="Property description ..."></textarea>
+      <br/><br>
+      Enter up to 3 available dates:
+      <br><br>
+      <input type="date" name="date1">
+      <br>
+      <input type="date" name="date2">
+      <br>
+      <input type="date" name="date3">
+      <br><br>
+      <input class="butt" type="submit" value="List">
+    </form>
+    <br>
+    </div>
+
+  </div>
 
 </body>
 

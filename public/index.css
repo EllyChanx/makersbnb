@@ -8,6 +8,17 @@
   background-image: url(istay-logo.png);
 }
 
+.menu_bar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.top_button {
+  float:left;
+}
+
 .top-right {
   text-align: right;
 }
@@ -63,7 +74,8 @@ input {
 .butt {
   display: inline-block;
   position: relative;
-  padding: 20px 6px;
+  padding: 15px 4px;
+  margin: 10px 5px;
   top: 0;
   font-size: 30px;
   font-family: "Open Sans", Helvetica;

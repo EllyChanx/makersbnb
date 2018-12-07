@@ -8,45 +8,42 @@
 
 <body class="main">
 
-  <div class="right">
-
-  <form class="top-right" method="get" action="/">
-    <input class="butt" type="submit" value="Logout">
-  </form>
-
-  <form class="top-right" method="get" action="/properties">
-    <input class="butt" type="submit" value="Back">
-  </form>
-
-  <form method="post" action="/properties/myproperties_pending">
-    <strong>Filter by status - Pending: </strong>
-    <input class="smallbutt" type="submit" value="Filter">
-  </form>
-
+  <div class="menu_bar">
+    <form class="top_button" method="get" action="/properties">
+      <input class="butt" type="submit" value="Back">
+    </form>
+    <form class="top_button" method="get" action="/">
+      <input class="butt" type="submit" value="Logout">
+    </form>
   </div>
 
+  <div class="content">
 
-  <h2>Your listed property:</h2>
+    <form method="post" action="/properties/myproperties_pending">
+      <strong>Filter by status - Pending: </strong>
+      <input class="smallbutt" type="submit" value="Filter">
+    </form>
 
-  <ul>
-  <% properties.forEach(function(property){ %>
-  <li>
-    <div class="property_list">
-      <div class="property_data">
-        <h2><%= property.name %></h2>
-        <img class="pro_url" src='<%= property.pic_url %>'<br><br>
-        <strong>Price: £<%= property.price %></strong><br><br>
-        <strong>Description: </strong><%= property.description %><br><br>
-        <strong>Date: </strong><%= property.date1 %> : <%= property.date1Status %><br>
-        <strong>Date: </strong><%= property.date2 %> : <%= property.date2Status %><br>
-        <strong>Date: </strong><%= property.date3 %> : <%= property.date3Status %>
-        <br><br>
+    <h2>Your listed property:</h2>
 
-        <% }); %>
-    </li>
-  </ul>
+    <ul>
+    <% properties.forEach(function(property){ %>
+    <li>
+      <div class="property_list">
+        <div class="property_data">
+          <h2><%= property.name %></h2>
+          <img class="pro_url" src='<%= property.pic_url %>'<br><br>
+          <strong>Price: £<%= property.price %></strong><br><br>
+          <strong>Description: </strong><%= property.description %><br><br>
+          <strong>Date: </strong><%= property.date1 %> : <%= property.date1Status %><br>
+          <strong>Date: </strong><%= property.date2 %> : <%= property.date2Status %><br>
+          <strong>Date: </strong><%= property.date3 %> : <%= property.date3Status %>
+          <br><br>
+          <% }); %>
+      </li>
+    </ul>
 
-
+  </div>
 
 </body>
 
