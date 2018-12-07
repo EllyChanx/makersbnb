@@ -101,7 +101,15 @@ app.post('/properties_bydate', function(req, res) {
 app.get('/properties/bydate', function(req, res) {
   var myDate = app.get("myDate");
 
-  db.properties.find( {$or: [{ date1: myDate},{ date2: myDate},{ date3: myDate}]}, null, {sort: '-price'}, function(err, docs){
+  db.properties.find(
+    { $or : [
+
+      { $and: [ {date1: myDate}, {date1Status: 'available'} ] },
+      { $and: [ {date2: myDate}, {date2Status: 'available'} ] },
+      { $and: [ {date3: myDate}, {date3Status: 'available'} ] }
+
+    ]
+  }, function(err, docs){
     res.render('properties/bydate', {
       properties: docs
     });
@@ -116,6 +124,10 @@ app.post('/properties_book', function(req, res) {
 
 app.get('/properties/book', function(req, res){
   var name = app.get("name")
+  db.properties.update({name: name}, {$set : {date1Status: 'booked'}})
+  db.properties.update({name: name}, {$set : {date2Status: 'booked'}})
+  db.properties.update({name: name}, {$set : {date3Status: 'booked'}})
+
   db.properties.find({ name: name } , function(err, docs){
     res.render('properties/book', {
       properties: docs
