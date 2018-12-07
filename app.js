@@ -169,6 +169,14 @@ app.get('/properties/myproperties', function(req, res) {
   });
 });
 
+app.post('/properties/myproperties_pending', function(req, res) {
+  res.redirect('/properties/pending')
+});
+
+app.get('/properties/pending', function(req, res) {
+  res.render('properties/pending');
+});
+
 // PENDING BY USERS
 app.get('/properties/pendingproperties', function(req, res) {
   var user = app.get("userEmail");
