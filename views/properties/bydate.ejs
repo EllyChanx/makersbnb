@@ -28,7 +28,7 @@
     <li>
       <div class="property_list">
         <div class="property_data">
-          <form method="post" action="/properties_book">
+          <form method="post" action="/<%= property._id %>">
           <h2><%= property.name %></h2>
           <img class="pro_url" src='<%= property.pic_url %>'><br><br>
           <strong>Price: £<%= property.price %></strong><br><br>
