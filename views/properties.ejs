@@ -9,17 +9,19 @@
 
 <body class="main">
 
-  <div class="right">
+  <div class="menu_bar">
 
-  <form class="top-right" method="get" action="/properties/create">
+  <form class="top_button" method="get" action="/properties/create">
     <input class="butt" type="submit" value="Create">
   </form>
-  <br/>
-  <form class="top-right" method="get" action="/properties/myproperties">
+  
+  <form class="top_button" method="get" action="/properties/myproperties">
     <input class="butt" type="submit" value="My Properties">
   </form>
 
   </div>
+
+  <div class="conten">
 
   <form method="post" action="/properties_bydate">
     <strong>Filter by date: </strong><input type="date" value="my_date" name="my_date">
@@ -49,6 +51,8 @@
       </div>
       </li>
     </ul>
+  </div>
+
   </div>
 
 </body>
