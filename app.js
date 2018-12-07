@@ -106,19 +106,21 @@ app.get('/properties/bydate', function(req, res) {
       properties: docs
     });
   });
+
 });
 
 // to work on - get property object passing to this route from submitbutton
 // make this work
-app.post('/properties_book', function(req, res) {
-  // app.set("myBooking", req.body.book_me)
-  console.log(req.body.id);
+app.post('/:id', function(req, res) {
+  var id = req.params.id;
+  console.log(id);
+  app.set("id", req.params.id)
   res.redirect('properties/book')
 });
 
 app.get('/properties/book', function(req, res){
-  var myBooking = app.get("myBooking")
-  db.properties.find(myBooking, function(err, docs){
+  var myBooking = app.get("id")
+  db.properties.find({_id: myBooking}, function(err, docs){
     res.render('properties/book', {
       properties: docs
     });
